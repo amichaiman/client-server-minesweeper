@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MinesweeperDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="GameDate" Type="datetime" Nullable="false" />
+          <Property Name="Winner" Type="nvarchar(max)" />
+          <Property Name="Loser" Type="nvarchar(max)" />
+          <Property Name="Tie" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlayerGames">
+          <Key>
+            <PropertyRef Name="Player_UserName" />
+            <PropertyRef Name="Game_Id" />
+          </Key>
+          <Property Name="Player_UserName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Game_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_PlayerGames_dbo_Games_Game_Id">
+          <End Role="Games" Type="Self.Games" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PlayerGames" Type="Self.PlayerGames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Games">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PlayerGames">
+              <PropertyRef Name="Game_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_PlayerGames_dbo_Players_Player_UserName">
+          <End Role="Players" Type="Self.Players" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PlayerGames" Type="Self.PlayerGames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Players">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="PlayerGames">
+              <PropertyRef Name="Player_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MinesweeperDataBaseModelStoreContainer">
+          <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlayerGames" EntityType="Self.PlayerGames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_PlayerGames_dbo_Games_Game_Id" Association="Self.FK_dbo_PlayerGames_dbo_Games_Game_Id">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="PlayerGames" EntitySet="PlayerGames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_PlayerGames_dbo_Players_Player_UserName" Association="Self.FK_dbo_PlayerGames_dbo_Players_Player_UserName">
+            <End Role="Players" EntitySet="Players" />
+            <End Role="PlayerGames" EntitySet="PlayerGames" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MinesweeperDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="GameDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Winner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Loser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tie" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Players" Relationship="Self.PlayerGames" FromRole="Games" ToRole="Players" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Games" Relationship="Self.PlayerGames" FromRole="Players" ToRole="Games" />
+        </EntityType>
+        <Association Name="PlayerGames">
+          <End Role="Games" Type="Self.Game" Multiplicity="*" />
+          <End Role="Players" Type="Self.Player" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MinesweeperDataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Games" EntityType="Self.Game" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <AssociationSet Name="PlayerGames" Association="Self.PlayerGames">
+            <End Role="Games" EntitySet="Games" />
+            <End Role="Players" EntitySet="Players" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MinesweeperDataBaseModelStoreContainer" CdmEntityContainer="MinesweeperDataBaseEntities">
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="MinesweeperDataBaseModel.Game">
+              <MappingFragment StoreEntitySet="Games">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GameDate" ColumnName="GameDate" />
+                <ScalarProperty Name="Winner" ColumnName="Winner" />
+                <ScalarProperty Name="Loser" ColumnName="Loser" />
+                <ScalarProperty Name="Tie" ColumnName="Tie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="MinesweeperDataBaseModel.Player">
+              <MappingFragment StoreEntitySet="Players">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PlayerGames" TypeName="MinesweeperDataBaseModel.PlayerGames" StoreEntitySet="PlayerGames">
+            <EndProperty Name="Games">
+              <ScalarProperty Name="Id" ColumnName="Game_Id" />
+            </EndProperty>
+            <EndProperty Name="Players">
+              <ScalarProperty Name="UserName" ColumnName="Player_UserName" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

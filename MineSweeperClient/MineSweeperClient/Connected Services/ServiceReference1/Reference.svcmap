@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="37d00742-0ccd-4676-835d-a4a7eb077389" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/MineSweeperServer/Service1/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="53d4ed9d-dde2-46b7-8e7a-f28a720d0a26" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MineSweeperServer/Service1/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="76490f7e-f4c0-4231-afb3-c8e6e48d099c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MineSweeperServer/Service1/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="2110bb4a-eca3-4061-b08a-ef083a10f41c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MineSweeperServer/Service1/?xsd=xsd0" />
+    <MetadataFile FileName="MineSweeperService.wsdl" MetadataType="Wsdl" ID="d8ced9f7-398b-44e5-ab5b-23d2815a3c47" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MineSweeperServer/Service1/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="3399f340-b40e-4b85-8299-c558070c91ba" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MineSweeperServer/Service1/?xsd=xsd3" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="c531657c-9c74-4381-9797-23abde9909f7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MineSweeperServer/Service1/?xsd=xsd1" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="edf10750-407f-4b65-bdc4-eb653f707518" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/MineSweeperServer/Service1/?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

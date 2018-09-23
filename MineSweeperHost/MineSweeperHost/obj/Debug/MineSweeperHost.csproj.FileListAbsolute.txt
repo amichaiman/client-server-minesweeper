@@ -1,0 +1,15 @@
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\bin\Debug\MineSweeperHost.exe.config
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\bin\Debug\MineSweeperHost.exe
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\bin\Debug\MineSweeperHost.pdb
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\bin\Debug\MineSweeperServer.dll
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\bin\Debug\EntityFramework.dll
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\bin\Debug\MineSweeperServer.pdb
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\bin\Debug\MineSweeperServer.dll.config
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\bin\Debug\EntityFramework.xml
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\obj\Debug\MineSweeperHost.csprojResolveAssemblyReference.cache
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\obj\Debug\MineSweeperHost.csproj.CoreCompileInputs.cache
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\obj\Debug\MineSweeperHost.csproj.CopyComplete
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\obj\Debug\MineSweeperHost.exe
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\obj\Debug\MineSweeperHost.pdb
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Tom\Downloads\MineSweeperServer\MineSweeperHost\MineSweeperHost\bin\Debug\EntityFramework.SqlServer.xml

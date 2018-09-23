@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MinesweeperDataBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Games">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="GameDate" Type="datetime" Nullable="false" />
+    <Property Name="Winner" Type="nvarchar(max)" />
+    <Property Name="Loser" Type="nvarchar(max)" />
+    <Property Name="Tie" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlayerGames">
+    <Key>
+      <PropertyRef Name="Player_UserName" />
+      <PropertyRef Name="Game_Id" />
+    </Key>
+    <Property Name="Player_UserName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Game_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Players">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_dbo_PlayerGames_dbo_Games_Game_Id">
+    <End Role="Games" Type="Self.Games" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PlayerGames" Type="Self.PlayerGames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Games">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PlayerGames">
+        <PropertyRef Name="Game_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_PlayerGames_dbo_Players_Player_UserName">
+    <End Role="Players" Type="Self.Players" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PlayerGames" Type="Self.PlayerGames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Players">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="PlayerGames">
+        <PropertyRef Name="Player_UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MinesweeperDataBaseModelStoreContainer">
+    <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayerGames" EntityType="Self.PlayerGames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_PlayerGames_dbo_Games_Game_Id" Association="Self.FK_dbo_PlayerGames_dbo_Games_Game_Id">
+      <End Role="Games" EntitySet="Games" />
+      <End Role="PlayerGames" EntitySet="PlayerGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_PlayerGames_dbo_Players_Player_UserName" Association="Self.FK_dbo_PlayerGames_dbo_Players_Player_UserName">
+      <End Role="Players" EntitySet="Players" />
+      <End Role="PlayerGames" EntitySet="PlayerGames" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

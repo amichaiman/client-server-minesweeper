@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineSweeperServer", "MineSweeperServer\MineSweeperServer.csproj", "{E0BF08DD-3E38-4FFA-AB7C-D7A0C3883E28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSDB", "MSDB\MSDB.csproj", "{9929331A-9DA3-45FE-8629-2898E3D787EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0BF08DD-3E38-4FFA-AB7C-D7A0C3883E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0BF08DD-3E38-4FFA-AB7C-D7A0C3883E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0BF08DD-3E38-4FFA-AB7C-D7A0C3883E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0BF08DD-3E38-4FFA-AB7C-D7A0C3883E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9929331A-9DA3-45FE-8629-2898E3D787EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9929331A-9DA3-45FE-8629-2898E3D787EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9929331A-9DA3-45FE-8629-2898E3D787EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9929331A-9DA3-45FE-8629-2898E3D787EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1C9A6CF-D510-403E-9F30-E3C7ABA740D5}
+	EndGlobalSection
+EndGlobal

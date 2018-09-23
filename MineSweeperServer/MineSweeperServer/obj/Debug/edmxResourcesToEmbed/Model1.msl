@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MinesweeperDataBaseModelStoreContainer" CdmEntityContainer="MinesweeperDataBaseEntities">
+    <EntitySetMapping Name="Games">
+      <EntityTypeMapping TypeName="MinesweeperDataBaseModel.Game">
+        <MappingFragment StoreEntitySet="Games">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GameDate" ColumnName="GameDate" />
+          <ScalarProperty Name="Winner" ColumnName="Winner" />
+          <ScalarProperty Name="Loser" ColumnName="Loser" />
+          <ScalarProperty Name="Tie" ColumnName="Tie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="MinesweeperDataBaseModel.Player">
+        <MappingFragment StoreEntitySet="Players">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PlayerGames" TypeName="MinesweeperDataBaseModel.PlayerGames" StoreEntitySet="PlayerGames">
+      <EndProperty Name="Games">
+        <ScalarProperty Name="Id" ColumnName="Game_Id" />
+      </EndProperty>
+      <EndProperty Name="Players">
+        <ScalarProperty Name="UserName" ColumnName="Player_UserName" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
